@@ -5,6 +5,7 @@ const cors = require('cors')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const postRoutes = require('./routes/post')
+const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/User')
