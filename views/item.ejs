@@ -13,10 +13,10 @@
     </header>
 
     <!--Create-->
-    <form action="">
-        <input type="text">
-        <input type="text">
-        <button></button>
+    <form id="createForm" action="/item" method="POST">
+        <input type="text" name="name" placeholder="item name" required>
+        <input type="text" name="description" placeholder="item description" required>
+        <button type="submit">Create Item</button>
     </form>
 
     <!--Update-->
