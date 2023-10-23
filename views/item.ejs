@@ -27,5 +27,16 @@
     </form>
 
     <!--Item List-->
+    <ul id="itemList">
+        <% items.forEach((item) => { %>
+        <li>
+            <span><%= item.name %> : <%= item.description %></span>
+            <button onClick="editItem('<%= item._id %>', '<%= item.name %>', '<%= item.description %>')">Edit</button>
+            <button onClick="deleteItem('<%= item._id %>')">Delete</button>
+        </li>
+        <% }); %>
+    </ul>
+
+    <script src=""></script>
 </body>
 </html>
