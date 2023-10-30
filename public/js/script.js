@@ -1,5 +1,8 @@
 //Control Image Carosuel
-
+function startCarousel() {
+    let activeImage = 0
+    const images = document.querySelectorAll("carousel img")
+}
 
 
 //Handle Edit Requests
