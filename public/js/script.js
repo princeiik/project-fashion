@@ -25,3 +25,9 @@ function startCarousel() {
 //Handle Delete Requests
 
 //Handle Errors from server if unable to write data (optional)
+function checkForError() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('error')) {
+    alert("Validation failed. Name and description are required.");
+  }
+}
