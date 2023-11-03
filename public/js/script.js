@@ -11,7 +11,10 @@ function startCarousel() {
 
         images[activeImage].classList.remove('active')
         activeImage = (activeImage + 1) % images.length
+        images[activeImage].classList.add('active')
     }
+
+    let intervalId = setInterval(cycleImages, 3000)
 }
 
 
