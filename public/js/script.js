@@ -19,7 +19,12 @@ function startCarousel() {
 
 
 //Handle Edit Requests
+function editItem(id, name, description) {
+  document.getElementById('updateId').value = id
 
+  document.getElementById('updateName').value = name
+  document.getElementById('updateDescription').value = description
+}
 
 
 //Handle Delete Requests
