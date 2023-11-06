@@ -24,6 +24,8 @@ function editItem(id, name, description) {
 
   document.getElementById('updateName').value = name
   document.getElementById('updateDescription').value = description
+
+  document.getElementById('updateForm').action = `/item/update/${id}`
 }
 
 
