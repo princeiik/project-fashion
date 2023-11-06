@@ -31,3 +31,8 @@ function checkForError() {
     alert("Validation failed. Name and description are required.");
   }
 }
+
+window.onload = function() {
+  startCarousel();
+  checkForError();
+}
