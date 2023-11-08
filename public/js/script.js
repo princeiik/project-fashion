@@ -28,8 +28,21 @@ function editItem(id, name, description) {
   document.getElementById('updateForm').action = `/item/update/${id}`
 }
 
-
 //Handle Delete Requests
+async function deleteItem(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/item/delete/${id}`,{
+      method: 'DELETE'
+    })
+    if(response.ok) {
+      location.reload()
+    } else {
+      console.log('Failed to delete item')
+    }
+  } catch(error) {
+    console.log('error occurred', error);
+  }
+}
 
 //Handle Errors from server if unable to write data (optional)
 function checkForError() {
