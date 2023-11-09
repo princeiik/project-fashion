@@ -21,6 +21,7 @@
 
     <!--Update-->
     <form id="updateForm" action="/item/update/" method="POST">
+        <input type="hidden" name="_id" id="updateId">
         <input type="text" name="name" id="updateName" placeholder="New item name" required>
         <input type="text" name="description" id="updateDescription" placeholder="item description" required>
         <button type="submit">Create Item</button>
