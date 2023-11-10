@@ -27,7 +27,16 @@ app.use(express.json())
 //Set EJS as templating engine
 app.set('view engine','ejs')
 
-//LOGIC GOES HERE
+//Routes
+app.get('/',(req, res) => {
+    res.render('index')
+})
+
+app.get('/item', async (req, res) => {
+    const items = await Item.find({})
+    res.render('item', {items})
+})
+
 
 app.listen(port, () => {
     console.log(`Server running on: http://localhost:${port}`)
