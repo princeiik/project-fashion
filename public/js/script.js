@@ -1,7 +1,7 @@
 //Control Image Carosuel
 function startCarousel() {
     let activeImage = 0
-    const images = document.querySelectorAll("carousel img")
+    const images = document.querySelectorAll("#carousel img")
 
     function cycleImages() {
         if(!images[activeImage]) {
