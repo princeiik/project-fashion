@@ -6,7 +6,7 @@ const Item = require('./models/Item')
 
 const app = express()
 
-const port = process.env.PORT || 3500
+const port = process.env.PORT || 4000
 
 //Connect to MongoDB
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@princecluster.olnk3yw.mongodb.net/${process.env.MONGODB_DATABASE_NAME}?retryWrites=true&w=majority`)
