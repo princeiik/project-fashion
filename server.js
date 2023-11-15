@@ -1,17 +1,15 @@
-require('dotenv').config();
+require('dotenv').config({path: './config/.env'});
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const Item = require('./models/Item')
+const connectDB = require('./config/database')
 
 const app = express()
 
 const port = process.env.PORT || 4000
 
-//Connect to MongoDB
-mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@princecluster.olnk3yw.mongodb.net/${process.env.MONGODB_DATABASE_NAME}?retryWrites=true&w=majority`)
- .then(() => console.log('MongoDB Connected'))
- .catch(err => console.log(err))
+connectDB()
 
 //Middleware
 
