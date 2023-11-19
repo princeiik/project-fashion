@@ -1,4 +1,4 @@
 // exports.getItems = async (req, res) => {
-//     const items = await Item.find({})
-//     res.render('item', {items})
+//     const item = await Item.find({})
+//     res.render('item', {items}) 
 // }

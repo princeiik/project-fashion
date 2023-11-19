@@ -31,7 +31,7 @@ function editItem(id, name, description) {
 //Handle Delete Requests
 async function deleteItem(id) {
   try {
-    const response = await fetch(`http://localhost:3000/item/delete/${id}`,{
+    const response = await fetch(`http://localhost:3500/item/delete/${id}`,{
       method: 'DELETE'
     })
     if(response.ok) {
