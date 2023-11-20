@@ -2,7 +2,6 @@ require('dotenv').config({path: './config/.env'});
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
-// const Item = require('./models/Item')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const itemRoutes = require('./routes/item')
