@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const itemRoutes = require('./routes/item')
+const postRoutes = require('./routes/post')
 
 const app = express()
 
@@ -27,7 +27,7 @@ app.set('view engine','ejs')
 
 //Routes
 app.use('/', mainRoutes)
-app.use('/item', itemRoutes)
+app.use('/post', postRoutes)
 
 //Start the Server
 //npm run dev
