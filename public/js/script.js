@@ -19,25 +19,25 @@ function startCarousel() {
 
 
 //Handle Edit Requests
-function editItem(id, name, description) {
+function editPost(id, name, description) {
   document.getElementById('updateId').value = id
 
   document.getElementById('updateName').value = name
   document.getElementById('updateDescription').value = description
 
-  document.getElementById('updateForm').action = `/item/update/${id}`
+  document.getElementById('updateForm').action = `/post/update/${id}`
 }
 
 //Handle Delete Requests
-async function deleteItem(id) {
+async function deletePost(id) {
   try {
-    const response = await fetch(`http://localhost:3500/item/delete/${id}`,{
+    const response = await fetch(`http://localhost:3500/post/delete/${id}`,{
       method: 'DELETE'
     })
     if(response.ok) {
       location.reload()
     } else {
-      console.log('Failed to delete item')
+      console.log('Failed to delete post')
     }
   } catch(error) {
     console.log('error occurred', error);

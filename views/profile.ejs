@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+        <h1>Profile Page</h1>
+    </header>
+
+    <!--Create-->
+    <form id="createForm" action="/post" method="POST">
+        <input type="text" name="name" placeholder="post name" required>
+        <input type="text" name="description" placeholder="post description" required>
+        <button type="submit">Create Post</button>
+    </form>
+
+    <!--Update-->
+    <form id="updateForm" action="/post/update/" method="POST">
+        <input type="hidden" name="_id" id="updateId">
+        <input type="text" name="name" id="updateName" placeholder="New post name" required>
+        <input type="text" name="description" id="updateDescription" placeholder="post description" required>
+        <button type="submit">Update Post</button>
+    </form>
+
+    <!--Post List-->
+    <ul id="postList">
+        <% posts.forEach((post) => { %>
+        <li>
+            <span><%= post.name %> : <%= post.description %></span>
+            <button onClick="editPost('<%= post._id %>', '<%= post.name %>', '<%= post.description %>')">Edit</button>
+            <button onClick="deletePost('<%= post._id %>')">Delete</button>
+        </li>
+        <% }); %>
+    </ul>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
