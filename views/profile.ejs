@@ -31,7 +31,8 @@
     <ul id="postList">
         <% posts.forEach((post) => { %>
         <li>
-            <span><%= post.title %> : <%= post.description %></span>
+            <p><%= post.title %></p>
+            <p><%= post.description %></p>
             <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
             <button onClick="deletePost('<%= post._id %>')">Delete</button>
         </li>
