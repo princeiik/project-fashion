@@ -19,10 +19,10 @@ function startCarousel() {
 
 
 //Handle Edit Requests
-function editPost(id, name, description) {
+function editPost(id, title, description) {
   document.getElementById('updateId').value = id
 
-  document.getElementById('updateName').value = name
+  document.getElementById('updateTitle').value = title
   document.getElementById('updateDescription').value = description
 
   document.getElementById('updateForm').action = `/post/update/${id}`
@@ -48,7 +48,7 @@ async function deletePost(id) {
 function checkForError() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('error')) {
-    alert("Validation failed. Name and description are required.");
+    alert("Validation failed. Title and description are required.");
   }
 }
 

@@ -26,9 +26,9 @@ const createPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
     const {id} = req.params
-    const {name, description} = req.body
+    const {title, description} = req.body
     try {
-        await Post.findByIdAndUpdate(id, {name, description})
+        await Post.findByIdAndUpdate(id, {title, description})
         res.redirect('/profile')
     } catch(err) {
         res.redirect('/profile?error=true')

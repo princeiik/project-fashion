@@ -14,7 +14,7 @@
 
     <!--Create-->
     <form id="createForm" action="/post" method="POST">
-        <input type="text" name="name" placeholder="post name" required>
+        <input type="text" name="title" placeholder="post title" required>
         <input type="text" name="description" placeholder="post description" required>
         <button type="submit">Create Post</button>
     </form>
@@ -22,7 +22,7 @@
     <!--Update-->
     <form id="updateForm" action="/post/update/" method="POST">
         <input type="hidden" name="_id" id="updateId">
-        <input type="text" name="name" id="updateName" placeholder="New post name" required>
+        <input type="text" name="title" id="updateTitle" placeholder="New post title" required>
         <input type="text" name="description" id="updateDescription" placeholder="post description" required>
         <button type="submit">Update Post</button>
     </form>
@@ -31,8 +31,8 @@
     <ul id="postList">
         <% posts.forEach((post) => { %>
         <li>
-            <span><%= post.name %> : <%= post.description %></span>
-            <button onClick="editPost('<%= post._id %>', '<%= post.name %>', '<%= post.description %>')">Edit</button>
+            <span><%= post.title %> : <%= post.description %></span>
+            <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
             <button onClick="deletePost('<%= post._id %>')">Delete</button>
         </li>
         <% }); %>
