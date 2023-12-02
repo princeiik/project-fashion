@@ -14,13 +14,15 @@
 
     <!--Create-->
     <form id="createForm" action="/post" method="POST">
-        <p><label for="title">Title</label></p>
-        <input type="text" name="title" placeholder="post title" required>
-        <p><label for="photo">Image</label></p>
-        <input type="file" name="photo" id="photo" >
-        <p><label for="description">Description</label></p>
-        <input type="text" name="description" placeholder="post description" required>
-        <p><button type="submit">Create Post</button></p>
+        <p>
+            <label for="title">Title</label> <br>
+            <input type="text" name="title" placeholder="post title" required> <br>
+            <label for="imgUpload">Image</label> <br>
+            <input type="file" name="image" id="imageUpload"><br>
+            <label for="description">Description</label> <br>
+            <textarea type="text" name="description" placeholder="post description" required></textarea><br>
+            <button type="submit">Create Post</button>
+        </p>
     </form>
 
     <!--Update-->
@@ -35,11 +37,13 @@
     <ul id="postList">
         <% posts.forEach((post) => { %>
         <li>
-            <p><%= post.title %></p>
-            <p><%= post.photo %></p>
-            <p><%= post.description %></p>
-            <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
-            <button onClick="deletePost('<%= post._id %>')">Delete</button>
+            <p>
+                <%= post.title %><br>
+                <%= post.image %><br>
+                <%= post.description %><br>
+                <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
+                <button onClick="deletePost('<%= post._id %>')">Delete</button>
+            </p>
         </li>
         <% }); %>
     </ul>
