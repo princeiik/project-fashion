@@ -4,7 +4,7 @@ const postController = require('../controllers/post')
 
 
 router.get('/', postController.getAllPosts)
-router.post('/', postController.createPost)
+router.post('/', upload.single("file"), postController.createPost)
 router.post('/update/:id', postController.updatePost)
 router.delete('/delete/:id',postController.deletePost)
 
