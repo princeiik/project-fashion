@@ -1,3 +1,4 @@
+const cloudinary = require("../middleware/cloudinary");
 const Post = require('../models/Post')
 
 const getProfile = async (req, res) => {
@@ -15,9 +16,18 @@ const getAllPosts = async (req, res) => {
 }
 
 const createPost = async (req, res) => {
-    const newPost = new Post(req.body)
+    // const newPost = new Post(req.body)
+    const result = await cloudinary.uploader.upload(req.file.path);
+
     try {
-        await newPost.save()
+        await Post.create({
+            title: req.body.title,
+            image: result.secure_url,
+            cloudinaryId: result.public_id,
+            description: req.body.description
+        });
+        // await newPost.save()
+        console.log(req.body);
         res.redirect('/profile')
     } catch(err) {
         res.redirect('/profile?error=true')
