@@ -64,6 +64,10 @@ blockquote {
   margin: 20px 0;
 }
 
+.image-resize {
+  width: 30%;
+}
+
 footer {
   text-align: center;
   margin-top: 30px;
