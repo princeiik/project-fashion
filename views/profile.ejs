@@ -13,12 +13,12 @@
     </header>
 
     <!--Create-->
-    <form id="createForm" action="/post" method="POST">
+    <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
         <p>
             <label for="title">Title</label> <br>
             <input type="text" name="title" placeholder="post title" required> <br>
             <label for="imgUpload">Image</label> <br>
-            <input type="file" name="image" id="imageUpload"><br>
+            <input type="file" name="file" id="imageUpload"><br>
             <label for="description">Description</label> <br>
             <textarea type="text" name="description" placeholder="post description" required></textarea><br>
             <button type="submit">Create Post</button>
@@ -39,7 +39,7 @@
         <li>
             <p>
                 <%= post.title %><br>
-                <%= post.image %><br>
+                <img class="image-resize" src="<%= post.image %>" alt=""><br>
                 <%= post.description %><br>
                 <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
                 <button onClick="deletePost('<%= post._id %>')">Delete</button>
