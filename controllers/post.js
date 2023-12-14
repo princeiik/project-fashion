@@ -10,9 +10,15 @@ const getProfile = async (req, res) => {
     }
 }
 
-const getAllPosts = async (req, res) => {
+const getFeed = async (req, res) => {
     // const posts = await Post.find({})
     // res.render('profile', {posts})
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" });
+      res.render('feed.ejs', { posts: posts });
+    } catch (err) {
+      console.log(err);
+    }
 }
 
 const createPost = async (req, res) => {
@@ -57,7 +63,7 @@ const deletePost = async (req, res) => {
 
 module.exports = {
     getProfile,
-    getAllPosts,
+    getFeed,
     createPost,
     updatePost,
     deletePost
