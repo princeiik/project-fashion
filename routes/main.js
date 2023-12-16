@@ -10,5 +10,6 @@ const postController = require('../controllers/post')
 
 router.get('/', homeController.getIndex)
 router.get('/profile', postController.getProfile)
+router.get('/feed', postController.getFeed);
 
 module.exports = router
