@@ -20,8 +20,6 @@
                 <%= post.title %><br>
                 <img class="image-resize" src="<%= post.image %>" alt=""><br>
                 <%= post.description %><br>
-                <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
-                <button onClick="deletePost('<%= post._id %>')">Delete</button>
             </p>
         </li>
         <% }); %>

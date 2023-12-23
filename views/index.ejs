@@ -37,11 +37,22 @@
 
   <section id="latest-posts">
     <h2>Latest Blog Posts</h2>
-    <ol>
+    <!-- <ol>
       <li>"The First 30 Days with Your New Puppy"</li>
       <li>"How to Puppy-Proof Your Home"</li>
       <li>"Best DIY Toys for Puppies"</li>
-    </ol>
+    </ol> -->
+    <ul>
+      <% posts.forEach((post) => { %>
+      <li>
+          <p>
+              <%= post.title %><br>
+              <img class="image-resize" src="<%= post.image %>" alt=""><br>
+              <%= post.description %><br>
+          </p>
+      </li>
+      <% }); %>
+  </ul>
   </section>
 
   <section id="testimonials">

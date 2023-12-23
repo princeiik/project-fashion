@@ -1,6 +1,9 @@
+const Post = require('../models/Post')
+
 const getIndex = async (req, res) => {
     try {
-        res.render('index')
+        const posts = await Post.find().sort({ createdAt: "desc" }).limit(3);
+        res.render('index', { posts: posts })
     } catch (err) {
         console.log(err)        
     }
