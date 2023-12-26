@@ -21,6 +21,15 @@ const getFeed = async (req, res) => {
     }
 }
 
+const getPost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        res.render('post.ejs', {post: post})
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 const createPost = async (req, res) => {
     // const newPost = new Post(req.body)
     const result = await cloudinary.uploader.upload(req.file.path);
@@ -64,6 +73,7 @@ const deletePost = async (req, res) => {
 module.exports = {
     getProfile,
     getFeed,
+    getPost,
     createPost,
     updatePost,
     deletePost

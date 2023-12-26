@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    
+    <header>
+        <%- include('./partials/header') %>
+        <h1><%= post.title %></h1>
+    </header>
+    <p>
+        <img class="image-resize" src="<%= post.image %>" alt=""><br>
+        <%= post.description %>
+    </p>
+    <script src="/js/script.js"></script>
 </body>
 </html>

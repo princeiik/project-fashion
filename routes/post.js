@@ -4,7 +4,7 @@ const postController = require('../controllers/post')
 const upload = require("../middleware/multer");
 
 
-// router.get('/', postController.getAllPosts)
+router.get('/:id', postController.getPost)
 router.post('/', upload.single("file"), postController.createPost)
 router.post('/update/:id', postController.updatePost)
 router.delete('/delete/:id',postController.deletePost)
