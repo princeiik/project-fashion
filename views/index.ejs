@@ -47,7 +47,9 @@
       <li>
           <p>
               <%= post.title %><br>
-              <img class="image-resize" src="<%= post.image %>" alt=""><br>
+              <a href="/post/<%= post._id %>">
+                <img class="image-resize" src="<%= post.image %>" alt=""><br>
+              </a>
               <%= post.description %><br>
           </p>
       </li>
