@@ -30,10 +30,10 @@ const registerUser = async (req, res) => {
 }
 
 const logoutUser = (req, res) => {
-    res.logout(function(err)) {
+    res.logout(function(err) {
         if (err) {return next(err)}
         res.redirect('/')
-    }
+    })
 }
 
 module.exports = {
