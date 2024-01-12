@@ -5,8 +5,8 @@ const loginPage = (req, res) => {
     res.render('login')
 }
 
-const registerPage = (req, res) => {
-    res.render('register')
+const signupPage = (req, res) => {
+    res.render('signup')
 }
 
 const loginUser = passport.authenticate('local', {
@@ -15,17 +15,17 @@ const loginUser = passport.authenticate('local', {
     failureFlash: false
 })
 
-const registerUser = async (req, res) => {
+const signupUser = async (req, res) => {
     try {
         const {username, password} = req.body
         const user = new User({username})
-        await User.register(user,password)
+        await User.signup(user,password)
         passport.authenticate('local')(req,res, function() {
             res.redirect('/')
         })
     } catch (err) {
         console.log(err);
-        res.redirect('/register')
+        res.redirect('/signup')
     }
 }
 
@@ -38,8 +38,8 @@ const logoutUser = (req, res) => {
 
 module.exports = {
     loginPage,
-    registerPage,
+    signupPage,
     loginUser,
-    registerUser,
+    signupUser,
     logoutUser
 }
