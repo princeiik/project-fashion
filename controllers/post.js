@@ -23,7 +23,7 @@ const getFeed = async (req, res) => {
 
 const getPost = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id).populate('createdBy');
         res.render('post.ejs', {post: post})
     } catch (err) {
         console.log(err);
@@ -39,7 +39,8 @@ const createPost = async (req, res) => {
             title: req.body.title,
             image: result.secure_url,
             cloudinaryId: result.public_id,
-            description: req.body.description
+            description: req.body.description,
+            createdBy: req.user._id
         });
         // await newPost.save()
         console.log(req.body);
@@ -53,7 +54,10 @@ const updatePost = async (req, res) => {
     const {id} = req.params
     const {title, description} = req.body
     try {
-        await Post.findByIdAndUpdate(id, {title, description})
+        let userPost = await Post.findById(req.params.id)
+        if(userPost.createdBy.equals(req.user._id)) {
+            await Post.findByIdAndUpdate(id, {title, description})
+        }
         res.redirect('/profile')
     } catch(err) {
         res.redirect('/profile?error=true')
@@ -63,7 +67,10 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
     const {id} = req.params
     try {
-        await Post.findByIdAndDelete(id)
+        let userPost = await Post.findById(req.params.id)
+        if(userPost.createdBy.equals(req.user._id)) {
+            await Post.findByIdAndDelete(id)
+        }
         res.status(200).json({ message: 'Post deleted successfully' })
     } catch(err) {
         res.redirect('/profile?error=true')
