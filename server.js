@@ -5,6 +5,8 @@ const cors = require('cors')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const postRoutes = require('./routes/post')
+const userRoutes = require('./routes/user')
+const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/User')
@@ -55,6 +57,7 @@ app.use((req,res,next) => {
 //Routes
 app.use('/', mainRoutes)
 app.use('/post', postRoutes)
+app.use('/', userRoutes)
 
 //Start the Server
 //npm run dev
