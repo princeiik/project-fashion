@@ -4,7 +4,7 @@ const Post = require('../models/Post')
 const getProfile = async (req, res) => {
     try {
         const posts = await Post.find({})
-        res.render('profile', {posts})
+        res.render('profile', {posts, user: req.user})
     } catch (err) {
         console.log(err);
     }
@@ -14,8 +14,8 @@ const getFeed = async (req, res) => {
     // const posts = await Post.find({})
     // res.render('profile', {posts})
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" });
-      res.render('feed.ejs', { posts: posts });
+      const posts = await Post.find().populate('createdBy').sort({ createdAt: "desc" });
+      res.render('feed.ejs', { posts: posts, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -24,7 +24,7 @@ const getFeed = async (req, res) => {
 const getPost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id).populate('createdBy');
-        res.render('post.ejs', {post: post})
+        res.render('post.ejs', {post: post, user: req.user})
     } catch (err) {
         console.log(err);
     }
@@ -40,7 +40,7 @@ const createPost = async (req, res) => {
             image: result.secure_url,
             cloudinaryId: result.public_id,
             description: req.body.description,
-            createdBy: req.user._id
+            createdBy: req.user.id
         });
         // await newPost.save()
         console.log(req.body);

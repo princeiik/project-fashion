@@ -23,6 +23,9 @@
                 </a>
                 <%= post.description %><br>
             </p>
+            <p>
+                Posted By: <%= post.createdBy.username %>
+            </p>
         </li>
         <% }); %>
     </ul>

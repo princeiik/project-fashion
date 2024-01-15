@@ -25,6 +25,14 @@
   text-decoration: none;
 }
 
+/* Logged in User text*/
+.nav-logged-in {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+}
+
 /* Change color on hover */
 .nav-link:hover {
   background-color: #555;

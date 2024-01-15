@@ -2,11 +2,11 @@ const passport = require('passport')
 const User = require('../models/User')
 
 const loginPage = (req, res) => {
-    res.render('login')
+    res.render('login', {user: req.user})
 }
 
 const signupPage = (req, res) => {
-    res.render('signup')
+    res.render('signup', {user: req.user})
 }
 
 const loginUser = passport.authenticate('local', {
@@ -19,7 +19,9 @@ const signupUser = async (req, res) => {
     try {
         const {username, password} = req.body
         const user = new User({username})
-        await User.signup(user,password)
+        // await User.signup(user,password)
+        await user.setPassword(password) // setPassword is provided by passport-local-mongoose
+        await user.save();
         passport.authenticate('local')(req,res, function() {
             res.redirect('/')
         })
@@ -30,7 +32,7 @@ const signupUser = async (req, res) => {
 }
 
 const logoutUser = (req, res) => {
-    res.logout(function(err) {
+    req.logout(function(err) {
         if (err) {return next(err)}
         res.redirect('/')
     })
