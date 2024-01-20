@@ -15,6 +15,9 @@
         <img class="image-resize" src="<%= post.image %>" alt=""><br>
         <%= post.description %>
     </p>
+    <p>
+        Posted By: <%= post.createdBy.username %>
+    </p>
     <script src="/js/script.js"></script>
 </body>
 </html>
