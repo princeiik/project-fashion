@@ -1,7 +1,8 @@
-<nav class="navbar">
+<nav class="navbar navbar-expand navbar-dark bg-body-dark">
     <% if(user) { %>
-        <span class="nav-logged-in">Logged in as: <%= user.username %></span>
+        <span class="navbar-text text-light fw-medium ms-0">Logged in as: <%= user.username %></span>
     <% } %>
+    <div class="container-fluid">
     <ul class="nav-list">
         <li class="nav-item">
             <a href="/" class="nav-link">Home</a>
@@ -25,4 +26,5 @@
         </li>
         <% } %>
     </ul>
+    </div>
 </nav>

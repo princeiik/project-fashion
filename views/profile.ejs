@@ -22,7 +22,7 @@
             <input type="file" name="file" id="imageUpload"><br>
             <label for="description">Description</label> <br>
             <textarea type="text" name="description" placeholder="post description" required></textarea><br>
-            <button type="submit">Create Post</button>
+            <button type="submit" class="btn btn-dark">Create Post</button>
         </p>
     </form>
 
@@ -31,7 +31,7 @@
         <input type="hidden" name="_id" id="updateId">
         <input type="text" name="title" id="updateTitle" placeholder="New post title" required>
         <input type="text" name="description" id="updateDescription" placeholder="post description" required>
-        <button type="submit">Update Post</button>
+        <button type="submit" class="btn btn-dark">Update Post</button>
     </form>
 
     <!--Post List-->
@@ -43,8 +43,8 @@
                     <%= post.title %><br>
                     <img class="image-resize" src="<%= post.image %>" alt=""><br>
                     <%= post.description %><br>
-                    <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')">Edit</button>
-                    <button onClick="deletePost('<%= post._id %>')">Delete</button>
+                    <button onClick="editPost('<%= post._id %>', '<%= post.title %>', '<%= post.description %>')" class="btn btn-dark">Edit</button>
+                    <button onClick="deletePost('<%= post._id %>')" class="btn btn-danger">Delete</button>
                 </p>
             </li>
             <% } %>
