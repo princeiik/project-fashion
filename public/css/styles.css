@@ -26,12 +26,11 @@
 }
 
 /* Logged in User text*/
-.nav-logged-in {
-  display: inline-block;
+/* .nav-logged-in {
   color: white;
   text-align: center;
   padding: 14px 20px;
-}
+} */
 
 /* Change color on hover */
 .nav-link:hover {
