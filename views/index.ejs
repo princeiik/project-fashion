@@ -43,19 +43,20 @@
       <li>"How to Puppy-Proof Your Home"</li>
       <li>"Best DIY Toys for Puppies"</li>
     </ol> -->
-    <ul>
-      <% posts.forEach((post) => { %>
-      <li>
-          <p>
-              <%= post.title %><br>
-              <a href="/post/<%= post._id %>">
-                <img class="image-resize" src="<%= post.image %>" alt=""><br>
-              </a>
-              <%= post.description %><br>
-          </p>
-      </li>
-      <% }); %>
-  </ul>
+    <ul class="list-inline container text-center">
+        <% posts.forEach((post) => { %>
+            <li class="list-inline-item ">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= post.image %>" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= post.title %></h5>
+                      <p class="card-text text-truncate"><%= post.description %></p>
+                      <a href="/post/<%= post._id %>" class="btn btn-dark">Click to see more</a>
+                    </div>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
   </section>
 
   <!-- <section id="testimonials">
