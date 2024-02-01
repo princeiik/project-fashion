@@ -46,7 +46,11 @@
                     <div class="card-body">
                       <h5 class="card-title"><%= post.title %></h5>
                       <p class="card-text text-truncate"><%= post.description %></p>
-                      <a href="/post/<%= post._id %>" class="btn btn-dark">Click to see more</a>
+                      <% if(!user) { %>
+                        <a href="/login" class="btn btn-dark">Click to see more</a>
+                        <% } else { %>
+                          <a href="/post/<%= post._id %>" class="btn btn-dark">Click to see more</a>
+                          <% } %>
                     </div>
                 </div>
             </li>
