@@ -34,11 +34,9 @@
                 <p>
                     <%= comments.comment %><br>
                     <%= comments.createdBy.username %>
-                    <!-- <form action="/comment/deleteComment/<%= post._id %>?_method=DELETE" method="POST">
-                        <p>
-                            <button type="submit" class="btn btn-dark">Delete</button>
-                        </p>
-                    </form> -->
+                    <% if(comments.createdBy._id.equals(user._id)) { %>
+                    <button onClick="deleteComment('<%= comments._id %>')" class="btn btn-danger">Delete</button>
+                    <% } %>
                 </p>
             </li>
         <% }) %>
