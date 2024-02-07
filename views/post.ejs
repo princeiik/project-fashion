@@ -21,6 +21,28 @@
     <p class="fs-4 monospace">
         Posted By: <%= post.createdBy.username %>
     </p>
+    <form action="/comment/createComment/<%= post._id %>" method="POST">
+        <p>
+            <label for="comment">Comment</label> <br>
+            <input type="text" name="comment" placeholder="post comment here" id="comment" required> <br>
+            <button type="submit" class="btn btn-dark">Create Post</button>
+        </p>
+    </form>
+    <ul>
+        <% comment.forEach((comments) => { %>
+            <li>
+                <p>
+                    <%= comments.comment %><br>
+                    <%= comments.createdBy.username %>
+                    <!-- <form action="/comment/deleteComment/<%= post._id %>?_method=DELETE" method="POST">
+                        <p>
+                            <button type="submit" class="btn btn-dark">Delete</button>
+                        </p>
+                    </form> -->
+                </p>
+            </li>
+        <% }) %>
+    </ul>
     <script src="/js/script.js"></script>
 </body>
 </html>
