@@ -25,7 +25,7 @@ const getFeed = async (req, res) => {
 const getPost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id).populate('createdBy');
-        const comments = await Comment.find({post: req.params.id}).populate('createdBy').sort({ createdAt: "desc" })
+        const comments = await Comment.find({post: req.params.id}).populate('createdBy').sort({ createdAt: "asc" })
         res.render('post.ejs', {post: post, user: req.user, comment: comments})
     } catch (err) {
         console.log(err);

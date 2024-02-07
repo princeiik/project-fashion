@@ -14,21 +14,20 @@ const createComment = async (req, res) => {
     }
 }
 
-// const deleteComment = async (req, res) => {
-//     const {id} = req.params
-//     try {
-//         let userComment = await Comment.findById(req.params.id)
-//         if(userComment.createdBy.equals(req.user._id)) {
-//             await Comment.findByIdAndDelete(id)
-//         }
-//         res.redirect(`/post/${req.params.id}`)
-//         // res.status(200).json({ message: 'Post deleted successfully' })
-//     } catch(err) {
-//         console.log(err);
-//     }
-// }
+const deleteComment = async (req, res) => {
+    const {id} = req.params
+    try {
+        let userComment = await Comment.findById(req.params.id)
+        if(userComment.createdBy.equals(req.user._id)) {
+            await Comment.findByIdAndDelete(id)
+        }
+        res.status(200).json({ message: 'Comment deleted successfully' })
+    } catch(err) {
+        res.redirect('/profile?error=true')
+    }
+}
 
 module.exports = {
     createComment,
-    // deleteComment
+    deleteComment
 }

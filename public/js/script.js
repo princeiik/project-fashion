@@ -44,6 +44,21 @@ async function deletePost(id) {
   }
 }
 
+async function deleteComment(id) {
+  try {
+    const response = await fetch(`http://localhost:3500/comment/deleteComment/${id}`,{
+      method: 'DELETE'
+    })
+    if(response.ok) {
+      location.reload()
+    } else {
+      console.log('Failed to delete post')
+    }
+  } catch(error) {
+    console.log('error occurred', error);
+  }
+}
+
 //Handle Errors from server if unable to write data (optional)
 function checkForError() {
   const urlParams = new URLSearchParams(window.location.search);
