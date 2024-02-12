@@ -14,7 +14,7 @@
     </header>
 
     <!--Create-->
-    <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
+    <!-- <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
         <p>
             <label for="title">Title</label> <br>
             <input type="text" name="title" placeholder="post title" required> <br>
@@ -24,6 +24,21 @@
             <textarea type="text" name="description" placeholder="post description" required></textarea><br>
             <button type="submit" class="btn btn-dark">Create Post</button>
         </p>
+    </form> -->
+    <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control w-25" id="exampleInputEmail1" name="title" placeholder="post title" required>
+        </div>
+        <div class="mb-3">
+            <label for="imgUpload" class="form-label">Image</label>
+            <input class="form-control w-25" type="file" id="imgUpload" name="file">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control w-25" id="exampleFormControlTextarea1" rows="3" name="description" placeholder="post description" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Create Post</button>
     </form>
 
     <!--Update-->
