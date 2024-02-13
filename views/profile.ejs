@@ -42,11 +42,23 @@
     </form>
 
     <!--Update-->
-    <form id="updateForm" action="/post/update/" method="POST">
+    <!-- <form id="updateForm" action="/post/update/" method="POST">
         <input type="hidden" name="_id" id="updateId">
         <input type="text" name="title" id="updateTitle" placeholder="New post title" required>
         <input type="text" name="description" id="updateDescription" placeholder="post description" required>
         <button type="submit" class="btn btn-dark">Update Post</button>
+    </form> -->
+    <form id="updateForm" action="/post/update/" method="POST">
+        <input type="hidden" name="_id" id="updateId">
+        <div class="mb-3">
+          <label for="title" class="form-label mt-3">Update Title</label>
+          <input type="text" class="form-control w-25" id="updateTitle" name="title" placeholder="post new title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Update Description</label>
+            <textarea class="form-control w-25" id="updateDescription" rows="3" name="description" placeholder="post new description" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark mb-3">Update Post</button>
     </form>
 
     <!--Post List-->
