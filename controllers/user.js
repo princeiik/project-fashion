@@ -19,7 +19,6 @@ const signupUser = async (req, res) => {
     try {
         const {username, password} = req.body
         const user = new User({username})
-        // await User.signup(user,password)
         await user.setPassword(password) // setPassword is provided by passport-local-mongoose
         await user.save();
         passport.authenticate('local')(req,res, function() {

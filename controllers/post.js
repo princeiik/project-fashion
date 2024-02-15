@@ -12,8 +12,6 @@ const getProfile = async (req, res) => {
 }
 
 const getFeed = async (req, res) => {
-    // const posts = await Post.find({})
-    // res.render('profile', {posts})
     try {
       const posts = await Post.find().populate('createdBy').sort({ createdAt: "desc" });
       res.render('feed.ejs', { posts: posts, user: req.user });
