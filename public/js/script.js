@@ -28,7 +28,7 @@ function editPost(id, title, description) {
   document.getElementById('updateForm').action = `/post/update/${id}`
 }
 
-//Handle Delete Requests
+//Handle Delete Requests for posts
 async function deletePost(id) {
   try {
     const response = await fetch(`http://localhost:3500/post/delete/${id}`,{
@@ -44,6 +44,7 @@ async function deletePost(id) {
   }
 }
 
+//Handle Delete Requests for comments
 async function deleteComment(id) {
   try {
     const response = await fetch(`http://localhost:3500/comment/deleteComment/${id}`,{
