@@ -62,7 +62,6 @@ app.use('/', userRoutes)
 app.use('/comment', commentRoutes)
 
 //Start the Server
-//npm run dev
 app.listen(port, () => {
     console.log(`Server running on: http://localhost:${port}`)
 })
