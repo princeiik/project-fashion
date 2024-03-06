@@ -8,6 +8,7 @@ const postRoutes = require('./routes/post')
 const userRoutes = require('./routes/user')
 const commentRoutes = require('./routes/comment')
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/User')
@@ -35,7 +36,9 @@ app.set('view engine','ejs')
 app.use(session({
     secret: 'This is Project Fashion',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    cookie: { secure: 'auto' }
 }))
 
 //Turn on passport and session
