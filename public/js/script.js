@@ -31,7 +31,7 @@ function editPost(id, title, description) {
 //Handle Delete Requests for posts
 async function deletePost(id) {
   try {
-    const response = await fetch(`http://localhost:3500/post/delete/${id}`,{
+    const response = await fetch(`http://https://project-fashion.onrender.com/post/delete/${id}`,{
       method: 'DELETE'
     })
     if(response.ok) {
@@ -47,7 +47,7 @@ async function deletePost(id) {
 //Handle Delete Requests for comments
 async function deleteComment(id) {
   try {
-    const response = await fetch(`http://localhost:3500/comment/deleteComment/${id}`,{
+    const response = await fetch(`http://https://project-fashion.onrender.com/comment/deleteComment/${id}`,{
       method: 'DELETE'
     })
     if(response.ok) {
