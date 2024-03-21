@@ -25,6 +25,7 @@
             <button type="submit" class="btn btn-dark">Create Post</button>
         </p>
     </form> -->
+    
     <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -48,6 +49,7 @@
         <input type="text" name="description" id="updateDescription" placeholder="post description" required>
         <button type="submit" class="btn btn-dark">Update Post</button>
     </form> -->
+
     <form id="updateForm" action="/post/update/" method="POST">
         <input type="hidden" name="_id" id="updateId">
         <div class="mb-3">
