@@ -21,6 +21,9 @@
     <p class="fs-4 monospace">
         Posted By: <%= post.createdBy.username %>
     </p>
+    
+    <!-- Form for submitting comment  -->
+
     <form action="/comment/createComment/<%= post._id %>" method="POST">
         <div class="form-floating mx-3">
           <textarea  type="text" name="comment" class="form-control w-50" placeholder="Type comment here" placeholder="post comment here" id="floatingTextarea" required></textarea>
@@ -28,15 +31,6 @@
         </div>
         <button type="submit" class="mt-3 mx-3 btn btn-dark">Post</button>
     </form>
-
-    <!-- <form action="/comment/createComment/<%= post._id %>" method="POST">
-        <p>
-            <label for="comment">Comment</label> <br>
-            <input type="text" name="comment" placeholder="post comment here" id="comment" required> <br>
-            <button type="submit" class="btn btn-dark">Create Post</button>
-        </p>
-    </form> -->
-
     <ul class="list-unstyled mt-3">
         <% comment.forEach((comments) => { %>
             <li>
@@ -72,3 +66,12 @@
 </html>
 
 
+<!-- Form for submitting a comment without Bootstrap -->
+
+<!-- <form action="/comment/createComment/<%= post._id %>" method="POST">
+        <p>
+            <label for="comment">Comment</label> <br>
+            <input type="text" name="comment" placeholder="post comment here" id="comment" required> <br>
+            <button type="submit" class="btn btn-dark">Create Post</button>
+        </p>
+    </form> -->
