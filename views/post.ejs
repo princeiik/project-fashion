@@ -46,21 +46,6 @@
             </li>
         <% }) %>
     </ul>
-
-    <!-- <ul>
-        <% comment.forEach((comments) => { %>
-            <li>
-                <p>
-                    <%= comments.comment %><br>
-                    <%= comments.createdBy.username %>
-                    <% if(comments.createdBy._id.equals(user._id)) { %>
-                    <button onClick="deleteComment('<%= comments._id %>')" class="btn btn-danger">Delete</button>
-                    <% } %>
-                </p>
-            </li>
-        <% }) %>
-    </ul> -->
-    
     <script src="/js/script.js"></script>
 </body>
 </html>
@@ -75,3 +60,19 @@
             <button type="submit" class="btn btn-dark">Create Post</button>
         </p>
     </form> -->
+
+<!-- Code snippet for showing comments without Bootstrap -->
+
+    <!-- <ul>
+        <% comment.forEach((comments) => { %>
+            <li>
+                <p>
+                    <%= comments.comment %><br>
+                    <%= comments.createdBy.username %>
+                    <% if(comments.createdBy._id.equals(user._id)) { %>
+                    <button onClick="deleteComment('<%= comments._id %>')" class="btn btn-danger">Delete</button>
+                    <% } %>
+                </p>
+            </li>
+        <% }) %>
+    </ul> -->
