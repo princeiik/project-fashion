@@ -19,16 +19,24 @@
         <input type="password" id="password" name="password" required>
         <button type="submit">Submit</button>
     </form> -->
-    <form action="/signup" method="post">
-        <div class="mb-3 w-25">
+    <div class="d-flex flex-column justify-content-center align-items-center pt-5">
+      <form action="/signup" method="post" class="p-4 border border-2 rounded" style="max-width: 550px; width: 100%;">
+        <div class="mb-3 pt-2">
           <label for="username" class="form-label">Username</label>
           <input type="text" class="form-control" id="username" name="username" required>
         </div>
-        <div class="mb-3 w-25">
+        <div class="mb-3 pt-2">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <div id="passwordHelpBlock" class="form-text alert alert-danger">
+          NOTE: Due to the password reset function being unavailable at this time, please save your password in a secure place.
+        </div>
+        <div class="d-flex justify-content-center pt-2">
+          <button type="submit" class="btn btn-dark w-25">Submit</button>
+        </div>
       </form>
+    </div>
+    
 </body>
 </html>
