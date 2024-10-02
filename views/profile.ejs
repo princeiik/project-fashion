@@ -10,64 +10,58 @@
 <body>
     <header>
         <%- include('./partials/header') %>
-        <h1 class="mt-3">Profile Page</h1>
+        <h1 class="mt-3 fw-bold">Profile</h1>
+        <p class="fs-5">Your own personal fashion space to create/update your posts!</p>
     </header>
-
-    <!--Create-->
-    <!-- <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
-        <p>
-            <label for="title">Title</label> <br>
-            <input type="text" name="title" placeholder="post title" required> <br>
-            <label for="imgUpload">Image</label> <br>
-            <input type="file" name="file" id="imageUpload"><br>
-            <label for="description">Description</label> <br>
-            <textarea type="text" name="description" placeholder="post description" required></textarea><br>
-            <button type="submit" class="btn btn-dark">Create Post</button>
-        </p>
-    </form> -->
     
-    <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control w-25" id="exampleInputEmail1" name="title" placeholder="post title" required>
+    <!--Create-->
+    <div class="d-flex w-100 flex-row justify-content-between border-bottom">
+        <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4">
+            <div>
+                <h2 class="bg-white fw-semibold fs-2">Create a new post</h2>
+            </div>
+            <form id="createForm" action="/post" enctype="multipart/form-data" method="POST" class="pr-2 w-75">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="post title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="imgUpload" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="imgUpload" name="file">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" placeholder="post description" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Create Post</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="imgUpload" class="form-label">Image</label>
-            <input class="form-control w-25" type="file" id="imgUpload" name="file">
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control w-25" id="exampleFormControlTextarea1" rows="3" name="description" placeholder="post description" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark">Create Post</button>
-    </form>
 
-    <!--Update-->
-    <!-- <form id="updateForm" action="/post/update/" method="POST">
-        <input type="hidden" name="_id" id="updateId">
-        <input type="text" name="title" id="updateTitle" placeholder="New post title" required>
-        <input type="text" name="description" id="updateDescription" placeholder="post description" required>
-        <button type="submit" class="btn btn-dark">Update Post</button>
-    </form> -->
-
-    <form id="updateForm" action="/post/update/" method="POST">
-        <input type="hidden" name="_id" id="updateId">
-        <div class="mb-3">
-          <label for="title" class="form-label mt-3">Update Title</label>
-          <input type="text" class="form-control w-25" id="updateTitle" name="title" placeholder="post new title" required>
+        <!--Update-->
+        <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4">
+            <div>
+                <h2 class="bg-white fw-semibold fs-2">Update an existing post</h2>
+            </div>
+            <form id="updateForm" action="/post/update/" method="POST" class="w-75 h-100">
+                <input type="hidden" name="_id" id="updateId">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Update Title</label>
+                  <input type="text" class="form-control" id="updateTitle" name="title" placeholder="post new title" required>
+                </div>
+                <div class="mb-3 d-flex flex-column">
+                    <label for="description" class="form-label">Update Description</label>
+                    <textarea class="form-control" id="updateDescription" rows="3" name="description" placeholder="post new description"style="height: 173px" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Update Post</button>
+            </form>  
         </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Update Description</label>
-            <textarea class="form-control w-25" id="updateDescription" rows="3" name="description" placeholder="post new description" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark mb-3">Update Post</button>
-    </form>
+    </div>
 
     <!--Post List-->
     <ul class="list-inline">
         <% posts.forEach((post) => { %>
             <% if(post.createdBy._id.equals(user._id)) { %>
-                <li class="list-inline-item">
+                <li class="list-inline-item pt-4">
                     <div class="card" style="width: 18rem;">
                         <img src="<%= post.image %>" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
@@ -81,6 +75,27 @@
             <% } %>
         <% }); %>
     </ul>
+
+    <!--Create-->
+    <!-- <form id="createForm" action="/post" enctype="multipart/form-data" method="POST">
+        <p>
+            <label for="title">Title</label> <br>
+            <input type="text" name="title" placeholder="post title" required> <br>
+            <label for="imgUpload">Image</label> <br>
+            <input type="file" name="file" id="imageUpload"><br>
+            <label for="description">Description</label> <br>
+            <textarea type="text" name="description" placeholder="post description" required></textarea><br>
+            <button type="submit" class="btn btn-dark">Create Post</button>
+        </p>
+    </form> -->
+
+    <!--Update-->
+    <!-- <form id="updateForm" action="/post/update/" method="POST">
+        <input type="hidden" name="_id" id="updateId">
+        <input type="text" name="title" id="updateTitle" placeholder="New post title" required>
+        <input type="text" name="description" id="updateDescription" placeholder="post description" required>
+        <button type="submit" class="btn btn-dark">Update Post</button>
+    </form> -->
     
     <!-- <ul id="postList">
         <% posts.forEach((post) => { %>
