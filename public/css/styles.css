@@ -72,6 +72,21 @@ blockquote {
   text-align: center;
 }
 
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cinzel-fashion {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 550;
+  font-size: 50px;
+  font-style: normal;
+}
+
+
 footer {
   text-align: center;
   margin-top: 30px;
@@ -80,7 +95,7 @@ footer {
 /* Carousel styling */
 #carousel {
   width: 600px;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
   margin: auto;
 }
