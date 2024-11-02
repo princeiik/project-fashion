@@ -25,8 +25,6 @@ This project came with alot of setbacks and times where I did not know how I was
 
 `npm install`
 
----
-
 ## Things to add
 
 - Create a `.env` file in config folder and add the following as `key = value`
