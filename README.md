@@ -5,7 +5,7 @@ Project Fashion is a site that fosters interaction and discussion within the fas
 
 ## How It's Made:
 
-**Tech used:** CSS, Javascript, Node, Express, MongoDB, EJS, Bootstrap
+**Tech used:** CSS, Javascript, Node, Express.js, MongoDB, EJS, Bootstrap
 
 Backend:
 
@@ -35,8 +35,6 @@ This project came with alot of setbacks and times where I did not know how I was
 - API_KEY = your cloudinary api key
 - API_SECRET = your cloudinary api secret
 - MONGODB_URI = MongoDB URI
-
----
 
 ## Run
 
